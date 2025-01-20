@@ -1,4 +1,5 @@
 import React from "react";
+import Counter from "../features/Counter";
 
 const Hero = ({title = "Become a React Dev",subtitle="Find the React job that fits your skills and needs" }) => {
   return (
@@ -12,6 +13,7 @@ const Hero = ({title = "Become a React Dev",subtitle="Find the React job that fi
             <p className="my-4 text-xl text-white">
                 {subtitle}
             </p>
+            <Counter />
           </div>
         </div>
       </section>
