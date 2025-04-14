@@ -13,7 +13,6 @@ const Hero = ({title = "Become a React Dev",subtitle="Find the React job that fi
             <p className="my-4 text-xl text-white">
                 {subtitle}
             </p>
-            <Counter />
           </div>
         </div>
       </section>

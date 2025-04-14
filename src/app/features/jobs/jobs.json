@@ -1,0 +1,92 @@
+[
+  {
+    "id": "job001",
+    "job_title": "Frontend Developer",
+    "company_name": "TechNova Solutions",
+    "location": "New York, NY",
+    "salary_range": "$70,000 - $90,000",
+    "experience": "2+ years",
+    "description": "Build responsive UI components using React and modern JavaScript frameworks."
+  },
+  {
+    "id": "job002",
+    "job_title": "Backend Engineer",
+    "company_name": "DataCloud Inc.",
+    "location": "San Francisco, CA",
+    "salary_range": "$90,000 - $120,000",
+    "experience": "3+ years",
+    "description": "Design and maintain scalable REST APIs and microservices using Node.js."
+  },
+  {
+    "id": "job003",
+    "job_title": "UI/UX Designer",
+    "company_name": "Creative Minds",
+    "location": "Austin, TX",
+    "salary_range": "$65,000 - $85,000",
+    "experience": "2+ years",
+    "description": "Design user-centric interfaces and improve user experience across mobile and web."
+  },
+  {
+    "id": "job004",
+    "job_title": "Project Manager",
+    "company_name": "AgileTech",
+    "location": "Seattle, WA",
+    "salary_range": "$80,000 - $100,000",
+    "experience": "4+ years",
+    "description": "Manage agile teams, timelines, and deliverables for software development projects."
+  },
+  {
+    "id": "job005",
+    "job_title": "DevOps Engineer",
+    "company_name": "CloudOps LLC",
+    "location": "Denver, CO",
+    "salary_range": "$95,000 - $115,000",
+    "experience": "3+ years",
+    "description": "Automate CI/CD pipelines and manage cloud infrastructure on AWS or Azure."
+  },
+  {
+    "id": "job006",
+    "job_title": "Full Stack Developer",
+    "company_name": "CodeWorks",
+    "location": "Chicago, IL",
+    "salary_range": "$85,000 - $105,000",
+    "experience": "3+ years",
+    "description": "Develop web applications using both frontend (React) and backend (Node.js) tech."
+  },
+  {
+    "id": "job007",
+    "job_title": "Data Analyst",
+    "company_name": "Insight Analytics",
+    "location": "Boston, MA",
+    "salary_range": "$70,000 - $90,000",
+    "experience": "2+ years",
+    "description": "Analyze data trends and create visual reports using SQL, Excel, and Power BI."
+  },
+  {
+    "id": "job008",
+    "job_title": "Software QA Tester",
+    "company_name": "BugTrackers Inc.",
+    "location": "Phoenix, AZ",
+    "salary_range": "$60,000 - $80,000",
+    "experience": "1+ years",
+    "description": "Test software applications, write test cases, and report bugs across platforms."
+  },
+  {
+    "id": "job009",
+    "job_title": "Mobile App Developer",
+    "company_name": "Appify Studio",
+    "location": "Los Angeles, CA",
+    "salary_range": "$85,000 - $110,000",
+    "experience": "2+ years",
+    "description": "Build cross-platform mobile apps using Flutter or React Native frameworks."
+  },
+  {
+    "id": "job010",
+    "job_title": "Cybersecurity Specialist",
+    "company_name": "SecureNet",
+    "location": "Washington, DC",
+    "salary_range": "$100,000 - $130,000",
+    "experience": "4+ years",
+    "description": "Monitor, detect, and respond to security threats across network systems."
+  }
+]
