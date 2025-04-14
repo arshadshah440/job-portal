@@ -1,5 +1,5 @@
 import React from "react";
-import linkedin from "../../assets/img/linkedin.png";
+import linkedin from "../../assets/img/linkedin.jpg";
 
 const JobCards = ({ job }) => {
   return (
@@ -27,9 +27,7 @@ const JobCards = ({ job }) => {
               {" "}
               {job.job_title}{" "}
             </a>
-            <p className="overflow-hidden pr-7 text-sm">
-             {job.description}
-            </p>
+            <p className="overflow-hidden pr-7 text-sm">{job.description}</p>
 
             <div className="mt-5 flex flex-col space-y-3 text-sm font-medium text-gray-500 sm:flex-row sm:items-center sm:space-y-0 sm:space-x-2">
               <div className="">
