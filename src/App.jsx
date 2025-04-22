@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import Home from "./components/Home";
+import Home from "./components/pages/Home";
 import Navbar from "./components/global/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import JobList from "./components/home/JobList";
-import AddJob from "./components/home/AddJob";
+import JobList from "./components/pages/JobList";
+import AddJob from "./components/pages/AddJob";
+import JobDetails from "./components/pages/JobDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route exact path="/" element={<Home />} />
         <Route path="/jobs" element={<JobList />} />
         <Route path="/add-job" element={<AddJob />} />
+        <Route path="/jobs/:id" element={<JobDetails />} />
       </Routes>
     </Router>
   );

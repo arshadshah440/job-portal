@@ -1,6 +1,6 @@
 import React from 'react';
-import Hero from './home/Hero';
-import JobList from './home/JobList';
+import Hero from '../pagebasedcomponents/Hero';
+import JobList from './JobList';
 
 const Home = () => {
   return (
