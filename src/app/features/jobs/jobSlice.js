@@ -1,27 +1,97 @@
-import { createSlice } from "@reduxjs/toolkit";
-import JobsList from './jobs.json';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import JobsList from "./jobs.json";
 const initialState = {
-   JobsList: JobsList,
-   CurrentJob: {}
-}
+  JobsList: [],
+  status: "idle",
+  error: null,
+  CurrentJob: {},
+};
 
-export const jobSlice=createSlice({
-    name:"job",
-    initialState,
-    reducers:{
-          addJob: (state,action) => {
-            state.JobsList.push(action.payload);
-          },
-          filterJob: (state,action) => {
-            const jobId = action.payload;
-            const jobList = state.JobsList;
-            const job = jobList.find((JobsList) => JobsList.id === jobId);
-            state.CurrentJob=job;
-          }
-    }
+export const fetchjobs = createAsyncThunk("jobs/fetchjobs", async () => {
+  try {
+    const response = await fetch(
+      "https://saddlebrown-sardine-735083.hostingersite.com/wp-json/jobportalapi/v1/jobs",
+      {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer abc_125!dcdfvvfdvxssabbb_dcdsv",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    return error.message;
+  }
 });
 
-export const { addJob,filterJob } = jobSlice.actions;
+export const singlejobfetch = createAsyncThunk(
+  "jobs/singlejobfetch",
+  async (id) => {
+    try {
+      const response = await fetch(
+        `https://saddlebrown-sardine-735083.hostingersite.com/wp-json/jobportalapi/v1/job?id=${id}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer abc_125!dcdfvvfdvxssabbb_dcdsv",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      return error.message;
+    } 
+  }
+);
 
+export const jobSlice = createSlice({
+  name: "job",
+  initialState,
+  reducers: {
+    addJob: (state, action) => {
+      state.JobsList.push(action.payload);
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchjobs.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchjobs.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.JobsList = action.payload;
+      })
+      .addCase(fetchjobs.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      })
+
+      // handling the single jon
+      .addCase(singlejobfetch.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(singlejobfetch.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.CurrentJob = action.payload;
+      })
+      .addCase(singlejobfetch.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
+  },
+});
+
+export const { addJob, filterJob } = jobSlice.actions;
+
+export const selectJobsList = (state) => state.jobs.JobsList;
+export const errorMessage = (state) => state.jobs.CurrentJob;
+export const selectJobStatus = (state) => state.jobs.status;
+export const selectedSingleJob = (state) => state.jobs.CurrentJob;
 
 export default jobSlice.reducer;
