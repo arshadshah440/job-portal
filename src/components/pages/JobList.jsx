@@ -13,7 +13,7 @@ import JobCards from "../global/JobCards";
 import JobPopup from "../pagebasedcomponents/JobPopup";
 import Loader from "../global/Loader";
 
-function JobList() {
+function JobList({ishome = false}) {
   const joblist = useSelector(selectJobsList);
   const status = useSelector(selectJobStatus);
   const error = useSelector(errorMessage);
@@ -32,10 +32,12 @@ function JobList() {
 
   return (
     <>
+     {!ishome &&
       <Hero
         title="Your Ideal React Job Awaits"
         subtitle="Find the React job that fits your skills and needs"
       />
+     }
 
       {status == "loading" && <Loader />}
       {status == "failed" && <h1>{error}</h1>}

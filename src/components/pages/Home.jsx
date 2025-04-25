@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
         <Hero title='Become a React Developer' subtitle='Find the React job that fits your skills and needs' />
-        <JobList />
+        <JobList ishome={true}/>
     </>
   )
 }
