@@ -45,7 +45,7 @@ const CompanyDetails = () => {
                 <div>
                   <h1 className="text-3xl font-bold">{company.title}</h1>
                   <p className="text-sm text-gray-500">
-                    {company.company_location} · Founded {company.founded_year}
+                    {company.company_location} · Founded in {company.company_founded_year}
                   </p>
                 </div>
               </div>
