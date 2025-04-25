@@ -144,7 +144,6 @@ const JobDetails = () => {
             )}
           </div>
         )}
-        {console.log(currentjob)}
         {!currentjob.title && status === "succeeded" && <h1>Job not found</h1>}
       </main>
       <ApplyToJob

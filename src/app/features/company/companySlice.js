@@ -21,7 +21,6 @@ export const fetchcompany = createAsyncThunk(
         }
       );
       const data = await response.json();
-      console.log(data);
       return data;
     } catch {
       return error.message;
@@ -31,6 +30,7 @@ export const fetchcompany = createAsyncThunk(
 export const singlecompanyfetch = createAsyncThunk(
   "company/singlecompanyfetch",
   async (slug) => {
+    companySlice.currentCompany = {};
     try {
       const response = await fetch(
         `https://saddlebrown-sardine-735083.hostingersite.com//wp-json/jobportalapi/v1/company?slug=${slug}`,
@@ -43,7 +43,6 @@ export const singlecompanyfetch = createAsyncThunk(
         }
       );
       const data = await response.json();
-      console.log(data);
       return data;
     } catch {
       return error.message;

@@ -41,7 +41,7 @@ function JobList({ishome = false}) {
 
       {status == "loading" && <Loader />}
       {status == "failed" && <h1>{error}</h1>}
-      <div className="mx-auto max-w-7xl px-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      <div className="mx-auto max-w-7xl py-[60px] px-2 gap-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
         {status == "succeeded" &&
           joblist.map((job) => {
             return (

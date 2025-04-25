@@ -20,7 +20,6 @@ export const fetchjobs = createAsyncThunk("jobs/fetchjobs", async () => {
       }
     );
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     return error.message;
@@ -42,7 +41,6 @@ export const singlejobfetch = createAsyncThunk(
         }
       );
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
       return error.message;

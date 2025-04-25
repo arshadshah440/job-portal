@@ -4,8 +4,8 @@ import linkedin from "../../assets/img/linkedin.jpg";
 const JobCards = ({ job }) => {
   return (
     <div>
-      <div className="m-5">
-        <div className="group mx-2 mt-10 grid max-w-screen-md grid-cols-12 space-x-8 overflow-hidden rounded-lg border py-8 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto">
+      <div className="m-0">
+        <div className="group mx-2 grid max-w-screen-md grid-cols-12 space-x-8 overflow-hidden rounded-lg border py-8 text-gray-700 shadow transition hover:shadow-lg sm:mx-auto">
           <div className="order-2 col-span-1 mt-4 -ml-14 text-left text-gray-600 hover:text-gray-700 sm:-order-1 sm:ml-4">
             <div className="group relative h-16 w-16 overflow-hidden rounded-lg">
               <img
