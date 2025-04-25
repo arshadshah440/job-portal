@@ -29,7 +29,6 @@ const JobDetails = () => {
       <main className="main bg-white  py-6">
         {status == "loading" && <Loader />}
         {status == "failed" && <h1>{error}</h1>}
-        {console.log(currentjob)}
         {currentjob && currentjob.title && status == "succeeded" && (
           <div className="flex flex-wrap justify-between max-w-6xl mx-auto">
             <div className="job-post w-full md:w-8/12">

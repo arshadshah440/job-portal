@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import jobSlice from "../../app/features/jobs/jobSlice";
+import Hero from "../pagebasedcomponents/Hero";
 import {
   selectJobsList,
   selectJobStatus,
@@ -26,11 +27,16 @@ function JobList() {
   };
 
   useEffect(() => {
-      dispatch(fetchjobs());
+    dispatch(fetchjobs());
   }, []);
 
   return (
     <>
+      <Hero
+        title="Your Ideal React Job Awaits"
+        subtitle="Find the React job that fits your skills and needs"
+      />
+
       {status == "loading" && <Loader />}
       {status == "failed" && <h1>{error}</h1>}
       <div className="mx-auto max-w-7xl px-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">

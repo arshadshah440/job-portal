@@ -28,7 +28,7 @@ const JobCards = ({ job }) => {
               {job.title}{" "}
             </div>
             <p
-              className="overflow-hidden pr-7 text-sm"
+              className="overflow-hidden h-[48px] restricttotwo_ar pr-7 text-sm"
               dangerouslySetInnerHTML={{ __html: job.job_description }}
             />
 
