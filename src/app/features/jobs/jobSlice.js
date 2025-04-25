@@ -28,10 +28,10 @@ export const fetchjobs = createAsyncThunk("jobs/fetchjobs", async () => {
 
 export const singlejobfetch = createAsyncThunk(
   "jobs/singlejobfetch",
-  async (id) => {
+  async (slug) => {
     try {
       const response = await fetch(
-        `https://saddlebrown-sardine-735083.hostingersite.com/wp-json/jobportalapi/v1/job?id=${id}`,
+        `https://saddlebrown-sardine-735083.hostingersite.com/wp-json/jobportalapi/v1/job?slug=${slug}`,
         {
           method: "GET",
           headers: {

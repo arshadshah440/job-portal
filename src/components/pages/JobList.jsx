@@ -46,7 +46,7 @@ function JobList({ishome = false}) {
           joblist.map((job) => {
             return (
               <div key={job.id}>
-                <Link to={`/jobs/${job.id}`}>
+                <Link to={`/jobs/${job.slug}`}>
                   <JobCards job={job} onClick={() => handleClick(job)} />
                 </Link>
               </div>

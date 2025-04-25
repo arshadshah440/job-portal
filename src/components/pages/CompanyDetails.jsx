@@ -119,7 +119,7 @@ const CompanyDetails = () => {
                       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2">
                         {company.related_jobs.map((job) => (
                           <div key={job.id}>
-                            <Link to={`/jobs/${job.id}`}>
+                            <Link to={`/jobs/${job.slug}`}>
                               <JobCards job={job} />
                             </Link>
                           </div>

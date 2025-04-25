@@ -10,14 +10,14 @@ import { useSelector, useDispatch } from "react-redux";
 import ApplyToJob from "../pagebasedcomponents/ApplyToJob";
 
 const JobDetails = () => {
-  const { id } = useParams();
+  const { slug } = useParams();
   const dispatch = useDispatch();
 
   const currentjob = useSelector(selectedSingleJob);
   const status = useSelector(selectJobStatus);
   useEffect(() => {
-    dispatch(singlejobfetch(id));
-  }, [id]);
+    dispatch(singlejobfetch(slug));
+  }, [slug]);
   const [visible, setvisible] = React.useState(false);
   const [jobtitle, setjobtitle] = React.useState("");
   const handleclick = () => {
@@ -101,7 +101,7 @@ const JobDetails = () => {
                   </div>
 
                   <Link
-                    to={`/company/"${currentjob.company.id}`}
+                    to={`/company/${currentjob.company.slug}`}
                     className="text-sm hover:underline"
                   >
                     <h3 className="employer-name text-center text-2xl">
