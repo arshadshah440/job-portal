@@ -57,6 +57,16 @@ const Navbar = () => {
                   >
                     Companies
                   </NavLink>
+                  <NavLink
+                    to="/register"
+                    className={({ isActive }) =>
+                      `${
+                        isActive ? "active bg-black text-white" : "text-white"
+                      }   hover:bg-gray-900 rounded-md px-3 py-2`
+                    }
+                  >
+                    Register
+                  </NavLink>
                 </div>
               </div>
             </div>
