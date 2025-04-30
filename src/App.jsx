@@ -9,6 +9,7 @@ import JobDetails from "./components/pages/JobDetails";
 import Companies from "./components/pages/Companies";
 import CompanyDetails from "./components/pages/CompanyDetails";
 import Register from "./components/pages/Register";
+import ProtectedRoute from "./components/features/ProtectedRoute";
 
 function App() {
   return (
@@ -17,7 +18,15 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/jobs" element={<JobList />} />
-        <Route path="/add-job" element={<AddJob />} />
+        <Route
+          path="/add-job"
+          element={
+            <ProtectedRoute>
+              {" "}
+              <AddJob />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/jobs/:slug" element={<JobDetails />} />
         <Route path="/companies/" element={<Companies />} />
         <Route path="/company/:slug" element={<CompanyDetails />} />
