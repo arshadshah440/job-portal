@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./components/pages/Home";
 import Navbar from "./components/global/Navbar";
@@ -10,8 +10,14 @@ import Companies from "./components/pages/Companies";
 import CompanyDetails from "./components/pages/CompanyDetails";
 import Register from "./components/pages/Register";
 import ProtectedRoute from "./components/features/ProtectedRoute";
+import { validateAuth } from "./app/features/auth/registerSlice";
+import { useDispatch } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(validateAuth());
+  }, []);
   return (
     <Router>
       <Navbar />

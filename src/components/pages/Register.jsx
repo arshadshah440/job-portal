@@ -20,6 +20,7 @@ const Register = () => {
   });
 
   const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const onChange = (e) => {
     const { name, value } = e.target;
     setFormdata((prev) => ({
@@ -28,8 +29,8 @@ const Register = () => {
     }));
   };
   const dispatch = useDispatch();
-  const navigate= useNavigate();
-  const error = useSelector(Error);
+  const navigate = useNavigate();
+  var error = useSelector(Error);
   const userid = useSelector(UserId);
   const token = useSelector(AccessToken);
   const status = useSelector(Status);
@@ -44,22 +45,29 @@ const Register = () => {
   }, [userid]);
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formdata);
-    dispatch(register(formdata));
-    setFormdata({
-      username: "",
-      email: "",
-      role: "",
-      password: "",
-      confirmpassword: "",
-    });
+    if (formdata.password == formdata.confirmpassword) {
+      console.log("Form submitted:", formdata);
+      dispatch(register(formdata));
+      setFormdata({
+        username: "",
+        email: "",
+        role: "",
+        password: "",
+        confirmpassword: "",
+      });
+    } else {
+      setErrorMessage("Password does not match");
+      setTimeout(() => {
+        setErrorMessage("");
+      }, 2000);
+    }
   };
   return (
     <div className="bg-gray-100 flex items-center justify-center min-h-screen">
       {status == "loading" && <Loader />}
 
-      {!successMessage && error && <div className="text-red-500">{error}</div>}
-      {!successMessage && !error && status == "idle" && (
+      {error && <div className="text-red-500">{error}</div>}
+      {successMessage == "" && !error && status != "loading" && (
         <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
           <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
             Register
@@ -169,7 +177,11 @@ const Register = () => {
                 required
               />
             </div>
-
+            {errorMessage != "" && (
+              <div className="mt-5 p-4 rounded-xl bg-red-100 border border-red-400 text-red-800 text-sm">
+                {errorMessage}
+              </div>
+            )}
             <div>
               <button
                 type="submit"
@@ -181,6 +193,7 @@ const Register = () => {
           </form>
         </div>
       )}
+
       {successMessage && (
         <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
           <div className="mt-5 p-4 rounded-xl bg-green-100 border border-green-400 text-green-800 text-sm">

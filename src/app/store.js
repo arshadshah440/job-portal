@@ -8,6 +8,6 @@ export const store = configureStore({
         counter : counterReducer,
         jobs : jobReducer,
         company : companyReducer,
-        register : registerSlice
+        register : registerSlice,
     },
 });
