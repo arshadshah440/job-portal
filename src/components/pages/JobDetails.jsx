@@ -34,7 +34,7 @@ const JobDetails = () => {
             <div className="job-post w-full md:w-8/12">
               <div className="job-meta mb-4">
                 <span className="text-xs text-gray-500">
-                  Posted less than a minute ago
+                 Posted at :  {currentjob.created_date}
                 </span>
 
                 <h1 className="job-title text-2xl">{currentjob.title}</h1>

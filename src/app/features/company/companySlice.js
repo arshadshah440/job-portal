@@ -33,7 +33,7 @@ export const singlecompanyfetch = createAsyncThunk(
     companySlice.currentCompany = {};
     try {
       const response = await fetch(
-        `https://saddlebrown-sardine-735083.hostingersite.com//wp-json/jobportalapi/v1/company?slug=${slug}`,
+        `https://saddlebrown-sardine-735083.hostingersite.com//wp-json/jobportalapi/v1/company?user_id=${slug}`,
         {
           method: "GET",
           headers: {

@@ -12,6 +12,8 @@ import Register from "./components/pages/Register";
 import ProtectedRoute from "./components/features/ProtectedRoute";
 import { validateAuth } from "./app/features/auth/registerSlice";
 import { useDispatch } from "react-redux";
+import LoginPage from "./components/pages/LoginPage";
+import Dashboard from "./components/pages/Dashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +39,16 @@ function App() {
         <Route path="/companies/" element={<Companies />} />
         <Route path="/company/:slug" element={<CompanyDetails />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              {" "}
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );

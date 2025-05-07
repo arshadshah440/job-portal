@@ -13,7 +13,7 @@ const AddJob = () => {
   const status = useSelector(selectJobStatus);
   const error = useSelector(errorMessage);
   const newjobslug = useSelector(newJobslug);
-  const userid=useSelector(UserId);
+  const userid = useSelector(UserId);
 
   const dispatch = useDispatch();
   const [successMessage, setSuccessMessage] = useState("");
@@ -161,7 +161,7 @@ const AddJob = () => {
               className="w-full px-4 py-2 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="$0 - $5k">Select type</option>
-              <option value="$5k - $10k"></option>
+              <option value="$5k - $10k">$5k - $10k</option>
               <option value="10k - $25k">$10k - $25k</option>
               <option value="$25k - $50k">$25k - $50k</option>
               <option value="$50k - $100k">$50k - $100k</option>

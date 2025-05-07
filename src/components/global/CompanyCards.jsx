@@ -9,22 +9,22 @@ const CompanyCards = ({ company }) => {
           <div className="img_wrapper border h-12 w-12 rounded-[50%]  border-indigo-100">
             <img
               src={
-                company.featured_image
-                  ? company.featured_image
-                  : "https://via.placeholder.com/60x60"
+                company?.acf_fields?.logo
+                  ? company?.acf_fields?.logo
+                  : "https://avatar.iran.liara.run/public/boy"
               }
               alt="Company Logo"
               className="w-12 h-12 p-1  rounded-full object-contain"
             />
           </div>
           <div>
-            <h2 className="text-xl font-semibold text-gray-800">{company.title}</h2>
-            <p className="text-sm text-gray-500">{company.company_location}</p>
+            <h2 className="text-xl font-semibold text-gray-800">{company?.acf_fields?.company_title}</h2>
+            <p className="text-sm text-gray-500">{company?.acf_fields?.company_location}</p>
           </div>
         </div>
         <p
           className="text-gray-600 text-base h-[48px] restricttotwo_ar"
-          dangerouslySetInnerHTML={{ __html: company.about_company }}
+          dangerouslySetInnerHTML={{ __html: company?.acf_fields?.about_company }}
         />
         <Link
           to={`/company/${company.slug}`}

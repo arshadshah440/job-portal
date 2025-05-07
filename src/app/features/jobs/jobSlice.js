@@ -4,14 +4,17 @@ const initialState = {
   JobsList: [],
   status: "idle",
   error: null,
+  totaljobs: 0,
   CurrentJob: {},
   newJobSlug: null,
 };
 
-export const fetchjobs = createAsyncThunk("jobs/fetchjobs", async () => {
+export const fetchjobs = createAsyncThunk("jobs/fetchjobs", async (params = {}) => {
+  
   try {
-    const response = await fetch(
-      "https://saddlebrown-sardine-735083.hostingersite.com/wp-json/jobportalapi/v1/jobs",
+    const query = new URLSearchParams(params).toString();
+    const url = `https://saddlebrown-sardine-735083.hostingersite.com/wp-json/jobportalapi/v1/jobs${query ? `?${query}` : ''}`;
+    const response = await fetch(url,
       {
         method: "GET",
         headers: {
@@ -87,7 +90,8 @@ export const jobSlice = createSlice({
       })
       .addCase(fetchjobs.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.JobsList = action.payload;
+        state.JobsList = action.payload.data;
+        state.totaljobs = action.payload.total_jobs;
       })
       .addCase(fetchjobs.rejected, (state, action) => {
         state.status = "failed";
@@ -100,7 +104,7 @@ export const jobSlice = createSlice({
       })
       .addCase(singlejobfetch.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.CurrentJob = action.payload;
+        state.CurrentJob = action.payload.data;
       })
       .addCase(singlejobfetch.rejected, (state, action) => {
         state.status = "failed";
@@ -128,5 +132,6 @@ export const errorMessage = (state) => state.jobs.CurrentJob;
 export const selectJobStatus = (state) => state.jobs.status;
 export const selectedSingleJob = (state) => state.jobs.CurrentJob;
 export const newJobslug = (state) => state.jobs.newJobSlug;
+export const totalavailablejobs = (state) => state.jobs.totaljobs;
 
 export default jobSlice.reducer;
