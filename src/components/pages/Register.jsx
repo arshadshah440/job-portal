@@ -46,7 +46,6 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (formdata.password == formdata.confirmpassword) {
-      console.log("Form submitted:", formdata);
       dispatch(register(formdata));
       setFormdata({
         username: "",
@@ -66,9 +65,13 @@ const Register = () => {
     <div className="bg-gray-100 flex items-center justify-center min-h-screen">
       {status == "loading" && <Loader />}
 
-      {error && <div className="text-red-500">{error}</div>}
-      {successMessage == "" && !error && status != "loading" && (
+      {successMessage == ""  && status != "loading" && (
         <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
+          {error && (
+            <div className="mb-5 p-4 rounded-xl bg-red-100 border border-red-400 text-red-800 text-sm">
+              {error}
+            </div>
+          )}
           <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
             Register
           </h2>

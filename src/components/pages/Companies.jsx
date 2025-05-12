@@ -34,7 +34,7 @@ const Companies = () => {
           companyList.map((company) => {
             return (
               <div key={company.id}>
-                <Link to={`/company/${company.slug}`}>
+                <Link to={`/company/${company.id}`}>
                   <CompanyCards company={company} />
                 </Link>
               </div>

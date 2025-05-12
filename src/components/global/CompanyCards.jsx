@@ -27,7 +27,7 @@ const CompanyCards = ({ company }) => {
           dangerouslySetInnerHTML={{ __html: company?.acf_fields?.about_company }}
         />
         <Link
-          to={`/company/${company.slug}`}
+          to={`/company/${company.id}`}
           className="w-full  px-3 bg-indigo-500 hover:bg-indigo-600 text-white text-center rounded-full py-2 inline-block"
         >
           View Profile →

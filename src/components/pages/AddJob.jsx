@@ -40,7 +40,6 @@ const AddJob = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
     setSuccessMessage("Job added successfully!");
     dispatch(createJob(formData));
     setFormData({

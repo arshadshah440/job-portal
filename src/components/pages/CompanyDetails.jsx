@@ -22,9 +22,9 @@ const CompanyDetails = () => {
   const userid = useSelector(UserId);
 
   useEffect(() => {
-    console.log("userid", userid);
-    dispatch(singlecompanyfetch(userid));
- }, [userid]);
+    dispatch(singlecompanyfetch(slug));
+  }, [userid]);
+
   return (
     <div>
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -40,13 +40,15 @@ const CompanyDetails = () => {
                     src={
                       company?.acf_fields?.logo
                         ? company?.acf_fields?.logo
-                        : "https://via.placeholder.com/60x60"
+                        : "https://avatar.iran.liara.run/public/boy"
                     }
                     alt="Company Logo"
                     className="w-24 h-24 rounded-full border"
                   />
                   <div>
-                    <h1 className="text-3xl font-bold">{company?.acf_fields?.company_title}</h1>
+                    <h1 className="text-3xl font-bold">
+                      {company?.acf_fields?.company_title}
+                    </h1>
                     <p className="text-sm text-gray-500">
                       {company?.acf_fields?.company_location} · Founded in{" "}
                       {company?.acf_fields?.company_founded_year}
@@ -61,34 +63,32 @@ const CompanyDetails = () => {
                   </h2>
                   <p
                     className="text-gray-700"
-                    dangerouslySetInnerHTML={{ __html: company?.acf_fields?.about_company }}
+                    dangerouslySetInnerHTML={{
+                      __html: company?.acf_fields?.about_company,
+                    }}
                   />
                 </div>
 
                 {/* <!-- Stats --> */}
-              
+
                 <div className="mt-6 grid grid-cols-2 gap-6">
-                  {
-                    company?.acf_fields?.company_total_employees && (
-                      <div>
+                  {company?.acf_fields?.company_total_employees && (
+                    <div>
                       <h3 className="text-sm text-gray-500">Employees</h3>
                       <p className="text-lg font-medium">
                         {company?.acf_fields?.company_total_employees}
                       </p>
                     </div>
-                    )
-                  }
-                 
-                  {
-                    company?.acf_fields?.company_revenue_generates && (
-                      <div>
-                        <h3 className="text-sm text-gray-500">Revenue</h3>
-                        <p className="text-lg font-medium">
-                          {company?.acf_fields?.company_revenue_generates}
-                        </p>
-                      </div>
-                    )
-                  }
+                  )}
+
+                  {company?.acf_fields?.company_revenue_generates && (
+                    <div>
+                      <h3 className="text-sm text-gray-500">Revenue</h3>
+                      <p className="text-lg font-medium">
+                        {company?.acf_fields?.company_revenue_generates}
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* <!-- Contact Info --> */}
@@ -107,7 +107,9 @@ const CompanyDetails = () => {
                       </li>
                     )}
                     {company?.acf_fields?.company_contact_number && (
-                      <li>📞 Phone: {company?.acf_fields?.company_contact_number}</li>
+                      <li>
+                        📞 Phone: {company?.acf_fields?.company_contact_number}
+                      </li>
                     )}
                   </ul>
                 </div>
@@ -134,7 +136,9 @@ const CompanyDetails = () => {
             </div>
           )}
 
-          {!company.user_login && status === "succeeded" && <h1>Job not found</h1>}
+          {!company.user_login && status === "succeeded" && (
+            <h1>Job not found</h1>
+          )}
         </main>
       </div>
     </div>

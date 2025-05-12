@@ -30,9 +30,9 @@ export const register = createAsyncThunk(
         // Throw an error to go into the rejected state
         throw new Error(data.message || "Registration failed");
       }
-      console.log(data);
       return data;
     } catch (error) {
+      
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -53,11 +53,9 @@ export const validateAuth = createAsyncThunk(
         }
       );
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
       return error.message;
-      console.log(error);
     }
   }
 );
@@ -75,11 +73,9 @@ export const logout = createAsyncThunk("register/logout", async () => {
       }
     );
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     return error.message;
-    console.log(error);
   }
 });
 
@@ -106,7 +102,6 @@ export const login = createAsyncThunk(
         // Throw an error to go into the rejected state
         throw new Error(data.message || "Login failed");
       }
-      console.log(data);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -158,7 +153,7 @@ const registerSlice = createSlice({
       })
       .addCase(login.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        state.error = "Invalid Credentials!!!";
       })
       .addCase(logout.pending, (state) => {
         state.status = "loading";

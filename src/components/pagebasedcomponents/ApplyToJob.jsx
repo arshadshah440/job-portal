@@ -29,7 +29,6 @@ const ApplyToJob = ({ visible, jobtitle, onclose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
     setShowthanyou(true); // dispatch(addJob(formData));
     setFormData({
       job_title: jobtitle,

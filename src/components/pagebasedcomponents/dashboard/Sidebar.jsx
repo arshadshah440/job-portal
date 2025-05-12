@@ -6,7 +6,6 @@ const Sidebar = () => {
       .querySelectorAll(".tab-section")
       .forEach((el) => el.classList.add("hidden"));
     document.getElementById(tabId).classList.remove("hidden");
-        // console.log(tabId);
 
 
   };

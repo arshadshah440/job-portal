@@ -101,7 +101,7 @@ const JobDetails = () => {
                   </div>
 
                   <Link
-                    to={`/company/${currentjob.company.slug}`}
+                    to={`/company/${currentjob.company.id}`}
                     className="text-sm hover:underline"
                   >
                     <h3 className="employer-name text-center text-2xl">
